@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:players/page/HomePage.dart';
 import 'package:players/service/repository.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "BLOC Implementation",
-      home: Container()
+      home: HomePage(playerRepository:playerRepository)
     );
   }
 
