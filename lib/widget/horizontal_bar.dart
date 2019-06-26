@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:players/bloc/player_listing_bloc.dart';
+import 'package:players/bloc/player_listing_events.dart';
 import 'package:players/model/nations.dart';
 
 class HorizontalBar extends StatelessWidget {
@@ -16,7 +19,7 @@ class HorizontalBar extends StatelessWidget {
   Widget buildItem(context, index) {
     return InkWell(
       onTap: () {
-        //TODO: Country click event
+        BlocProvider.of<PlayerListingBloc>(context).dispatch(CountrySelectedEvent(nationModel: nations[index]));
       },
       child: Container(
         width: 70.0,
@@ -24,7 +27,7 @@ class HorizontalBar extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
-            
+
             image: AssetImage(nations[index].imagePath),
           ),
         ),
